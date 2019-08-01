@@ -2,5 +2,8 @@
 <div class="container">
     <h1>{{appTitle}}</h1>  
     
-    <app-todos [todos]="todos"> </app-todos> 
+    <app-todos 
+      [todos]="todos"
+      (onToggle)="onToggle($event)"
+      ></app-todos> 
   </div>
