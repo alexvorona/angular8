@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { TodosService } from '../shared/todos.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todos',
@@ -12,7 +13,9 @@ export class TodosComponent implements OnInit {
   constructor(private todosService : TodosService) { }
 
   ngOnInit() {
-    this.todosService.fetchTodos().subscribe(() => {
+    this.todosService.fetchTodos()
+      .pipe(delay(500))
+      .subscribe(() => {
       this.loading = false;
     })
   }
