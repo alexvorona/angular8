@@ -19,4 +19,8 @@ export class TodosService{
         this.todos[idx].completed = !this.todos[idx].completed
     
       }
+
+      removeTodo(id : number){
+        this.todos = this.todos.filter((t)=> { return t.id !== id})
+      }
 }
