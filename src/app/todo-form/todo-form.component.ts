@@ -24,5 +24,6 @@ export class TodoFormComponent implements OnInit {
     }
 
     this.todosService.addTodo(todo)
+    this.title = ''
   }
 }
