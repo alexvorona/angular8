@@ -8,9 +8,13 @@ import { TodosService } from '../shared/todos.service';
 })
 export class TodosComponent implements OnInit {
 
+  private loading: boolean = true;
   constructor(private todosService : TodosService) { }
 
   ngOnInit() {
+    this.todosService.fetchTodos().subscribe(() => {
+      this.loading = false;
+    })
   }
 
   onChange(id: number){

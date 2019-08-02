@@ -1,3 +1,4 @@
+<div *ngIf="!loading">
 <ul *ngIf="todosService.todos.length; else noTodos">    
     <li *ngFor="let todo of todosService.todos; let i = index">
         <span [class.done]="todo.completed">
@@ -12,3 +13,5 @@
 <ng-template #noTodos>
     <p style="text-align: center;">You have nothing to do for today. Enjoy!</p>
 </ng-template>
+</div>
+<p *ngIf="loading">Loading...</p>
